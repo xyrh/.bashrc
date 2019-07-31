@@ -45,3 +45,4 @@ if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
     tmux attach -t WorkSpace || tmux new -s WorkSpace
 fi
 
+stty -ixon
