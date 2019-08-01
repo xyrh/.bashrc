@@ -4,7 +4,7 @@ fi
 
 if [ "$TERM" == "xterm" ] || [ "$TERM" == "xterm-256color" ]; then
     export TERMINFO=/usr/share/terminfo
-    export TERM=xterm-256color
+    export TERM=screen-256color
 fi
 
 path_append ()  { path_remove $1; export PATH="$PATH:$1"; }
