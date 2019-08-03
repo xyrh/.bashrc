@@ -14,6 +14,7 @@ path_remove ()  { export PATH=`echo -n $PATH | awk -v RS=: -v ORS=: '$0 != "'$1'
 
 alias grep='grep --color=auto'
 alias life='cat ~/.bash_history | sort | uniq -c | sort -rn | head -n 10'
+alias bp='find . -type f -name "*.[chsS]" | sort | uniq  > project.files'
 alias vi='vim'
 alias rm='rm -i'
 alias rr='rm -rf'
