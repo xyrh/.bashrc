@@ -11,10 +11,10 @@ path_append ()  { path_remove $1; export PATH="$PATH:$1"; }
 path_prepend () { path_remove $1; export PATH="$1:$PATH"; }
 path_remove ()  { export PATH=`echo -n $PATH | awk -v RS=: -v ORS=: '$0 != "'$1'"' | sed 's/:$//'`; }
 
-
 alias grep='grep --color=auto'
 alias life='cat ~/.bash_history | sort | uniq -c | sort -rn | head -n 10'
 alias bp='find . -type f -name "*.[chsS]" | sort | uniq  > project.files'
+alias bb='cat project.files | gtags -f -'
 alias vi='vim'
 alias rm='rm -i'
 alias rr='rm -rf'
@@ -38,6 +38,7 @@ export PS1="\[\033[01;31m\]"'$(__git_ps1 "(%s)")'"\[\033[00m\] \[\033[01;33m\]\w
 export PATH=~/Rootfs/usr/bin:$PATH
 export PATH=~/Rootfs/bin:$PATH
 export LD_LIBRARY_PATH=~/Rootfs/usr/lib
+
 path_remove "/opt/xm_toolchain/arm-xm-linux/usr/bin"
 path_remove "/opt/GrainMedia_linux/toolchain_gnueabi-4.9.x_CA7/usr/bin"
 path_remove "/opt/arm/arm-ca53-linux-uclibcgnueabihf-6.4/usr/bin"
