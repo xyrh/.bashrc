@@ -3,8 +3,8 @@ if [ -f /etc/bash.bashrc ];then
 fi
 
 if [ "$TERM" == "xterm" ] || [ "$TERM" == "xterm-256color" ]; then
-    export TERMINFO=/usr/share/terminfo
-    export TERM=xterm-256color
+	export TERMINFO=/usr/share/terminfo
+	export TERM=xterm-256color
 fi
 
 path_append ()  { path_remove $1; export PATH="$PATH:$1"; }
@@ -16,6 +16,7 @@ alias life='cat ~/.bash_history | sort | uniq -c | sort -rn | head -n 10'
 alias bp='find . -type f -name "*.[chsS]" | sort | uniq  > project.files'
 alias bb='cat project.files | gtags -f -'
 alias vi='vim'
+alias em='emacs'
 alias rm='rm -i'
 alias rr='rm -rf'
 alias ls='ls --color'
@@ -37,6 +38,7 @@ export GIT_EDITOR=vim
 export PS1="\[\033[01;31m\]"'$(__git_ps1 "(%s)")'"\[\033[00m\] \[\033[01;33m\]\w\[\033[00m\] "$(vim-status)" "
 export PATH=~/Rootfs/usr/bin:$PATH
 export PATH=~/Rootfs/bin:$PATH
+export PATH=$PATH:~/WorkSpace/github/clang/bin
 export LD_LIBRARY_PATH=~/Rootfs/usr/lib
 
 path_remove "/opt/xm_toolchain/arm-xm-linux/usr/bin"
