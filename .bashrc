@@ -16,6 +16,7 @@ alias life='cat ~/.bash_history | sort | uniq -c | sort -rn | head -n 10'
 alias bp='find . -type f -name "*.[chsS]" | sort | uniq  > project.files'
 alias bb='cat project.files | gtags -f -'
 alias vi='vim'
+alias vl='echo $VIM'
 alias em='emacs'
 alias rm='rm -i'
 alias rr='rm -rf'
@@ -25,17 +26,8 @@ alias zb='z -b'
 
 eval "$(lua ~/WorkSpace/github/z.lua/z.lua --init bash enhanced once fzf)"
 
-function vim-status
-{
-    if [[ -z "$VIM" ]];then
-        echo "\[\033[01;32m\]✗\[\033[00m\]"
-    else
-        echo "\[\033[01;31m\]✗\[\033[00m\]"
-    fi
-}
-
 export GIT_EDITOR=vim
-export PS1="\[\033[01;31m\]"'$(__git_ps1 "(%s)")'"\[\033[00m\] \[\033[01;33m\]\w\[\033[00m\] "$(vim-status)" "
+export PS1=" "'$(__git_ps1 "(%s)")'" \w \$ "
 export PATH=~/Rootfs/usr/bin:$PATH
 export PATH=~/Rootfs/bin:$PATH
 export PATH=$PATH:~/WorkSpace/github/clang/bin
