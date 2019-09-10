@@ -26,6 +26,7 @@ alias zb='z -b'
 
 eval "$(lua ~/WorkSpace/github/z.lua/z.lua --init bash enhanced once fzf)"
 
+export MANPATH=~/Rootfs/usr/share/man:$MANPATH
 export GIT_EDITOR=vim
 export PS1=" "'$(__git_ps1 "(%s)")'" \w \$ "
 export PATH=~/Rootfs/usr/bin:$PATH
