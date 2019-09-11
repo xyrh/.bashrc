@@ -28,7 +28,7 @@ eval "$(lua ~/WorkSpace/github/z.lua/z.lua --init bash enhanced once fzf)"
 
 export MANPATH=~/Rootfs/usr/share/man:$MANPATH
 export GIT_EDITOR=vim
-export PS1="\[\033[01;31m\]"'$(__git_ps1 "(%s)")'"\[\033[00m\] \[\033[01;33m\]\w\[\033[00m\] \[\033[01;32m\]\$\[\033[00m\] "
+export PS1=" "'$(__git_ps1 "(%s)")'" \w \$ "
 export PATH=~/Rootfs/usr/bin:$PATH
 export PATH=~/Rootfs/bin:$PATH
 export PATH=$PATH:~/WorkSpace/github/clang/bin
