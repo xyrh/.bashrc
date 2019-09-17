@@ -27,17 +27,18 @@ alias zb='z -b'
 eval "$(lua ~/WorkSpace/github/z.lua/z.lua --init bash enhanced once fzf)"
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git/*'"
-export MANPATH=~/Rootfs/usr/share/man:$MANPATH
 export GIT_EDITOR=vim
 export PS1=" "'$(__git_ps1 "(%s)")'" \w \$ "
-export PATH=~/Rootfs/usr/bin:$PATH
-export PATH=~/Rootfs/bin:$PATH
-export PATH=$PATH:~/WorkSpace/github/clang/bin
 export LD_LIBRARY_PATH=~/Rootfs/usr/lib
 
-path_remove "/opt/xm_toolchain/arm-xm-linux/usr/bin"
-path_remove "/opt/GrainMedia_linux/toolchain_gnueabi-4.9.x_CA7/usr/bin"
-path_remove "/opt/arm/arm-ca53-linux-uclibcgnueabihf-6.4/usr/bin"
+if [[ -z "$TMUX" ]];then
+	path_remove "/opt/xm_toolchain/arm-xm-linux/usr/bin"
+	path_remove "/opt/GrainMedia_linux/toolchain_gnueabi-4.9.x_CA7/usr/bin"
+	path_remove "/opt/arm/arm-ca53-linux-uclibcgnueabihf-6.4/usr/bin"
+	export PATH="/home/${LOGNAME}/Rootfs/usr/bin":$PATH
+	export PATH="/home/${LOGNAME}/Rootfs/bin":$PATH
+	export PATH=$PATH:"/home/${LOGNAME}/WorkSpace/github/clang/bin"
+fi
 
 if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
     tmux attach -t WorkSpace || tmux new -s WorkSpace
