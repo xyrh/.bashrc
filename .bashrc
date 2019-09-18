@@ -26,7 +26,7 @@ alias zb='z -b'
 
 eval "$(lua ~/WorkSpace/github/z.lua/z.lua --init bash enhanced once fzf)"
 
-export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git/*'"
+export FZF_DEFAULT_COMMAND="rg --files --hidden --glob !.svn --glob !.git"
 export GIT_EDITOR=vim
 export PS1=" "'$(__git_ps1 "(%s)")'" \w \$ "
 export LD_LIBRARY_PATH=~/Rootfs/usr/lib
