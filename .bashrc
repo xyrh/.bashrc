@@ -31,10 +31,11 @@ export GIT_EDITOR=vim
 export PS1=" "'$(__git_ps1 "(%s)")'" \w \$ "
 export LD_LIBRARY_PATH=~/Rootfs/usr/lib
 
+path_remove "/opt/xm_toolchain/arm-xm-linux/usr/bin"
+path_remove "/opt/GrainMedia_linux/toolchain_gnueabi-4.9.x_CA7/usr/bin"
+path_remove "/opt/arm/arm-ca53-linux-uclibcgnueabihf-6.4/usr/bin"
+
 if [[ -z "$TMUX" ]];then
-	path_remove "/opt/xm_toolchain/arm-xm-linux/usr/bin"
-	path_remove "/opt/GrainMedia_linux/toolchain_gnueabi-4.9.x_CA7/usr/bin"
-	path_remove "/opt/arm/arm-ca53-linux-uclibcgnueabihf-6.4/usr/bin"
 	export PATH="/home/${LOGNAME}/Rootfs/usr/bin":$PATH
 	export PATH="/home/${LOGNAME}/Rootfs/bin":$PATH
 	export PATH=$PATH:"/home/${LOGNAME}/WorkSpace/github/clang/bin"
