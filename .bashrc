@@ -28,7 +28,7 @@ eval "$(lua ~/WorkSpace/github/z.lua/z.lua --init bash enhanced once fzf)"
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden --glob !.svn --glob !.git"
 export GIT_EDITOR=vim
-export PS1=" "'$(__git_ps1 "(%s)")'" \w \$ "
+export PS1="\[\033[01;31m\]"'$(__git_ps1 "(%s)")'"\[\033[00m\] \[\033[01;33m\]\w\[\033[00m\] \[\033[01;32m\]ღ\[\033[00m\] "
 export LD_LIBRARY_PATH=~/Rootfs/usr/lib
 
 path_remove "/opt/xm_toolchain/arm-xm-linux/usr/bin"
