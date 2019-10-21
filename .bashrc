@@ -26,7 +26,8 @@ alias zb='z -b'
 
 eval "$(lua ~/WorkSpace/github/z.lua/z.lua --init bash enhanced once fzf)"
 
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!{.git,node_modules}/*" --glob "!{*.o,*.so,.svn}" 2> /dev/null'
+export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export GIT_EDITOR=vim
 
