@@ -13,7 +13,7 @@ path_remove ()  { export PATH=`echo -n $PATH | awk -v RS=: -v ORS=: '$0 != "'$1'
 
 alias grep='grep --color=auto'
 alias life='cat ~/.bash_history | sort | uniq -c | sort -rn | head -n 10'
-alias bp='find . -type f -name "*.[chsS]" | sort | uniq  > project.files'
+alias bp='rg --files -tasm -tc -tcpp | sort | uniq  > project.files'
 alias bb='cat project.files | gtags -f -'
 alias vi='vim'
 alias vl='echo $VIM'
@@ -26,7 +26,7 @@ alias zb='z -b'
 
 eval "$(lua ~/WorkSpace/github/z.lua/z.lua --init bash enhanced once fzf)"
 
-export FZF_DEFAULT_COMMAND='fd -t f --no-ignore -E "*.[ao]"'
+export FZF_DEFAULT_COMMAND='fd --type file'
 export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export GIT_EDITOR=vim
