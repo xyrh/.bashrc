@@ -25,7 +25,7 @@ alias ls='ls --color'
 alias zf='z -I'
 alias zb='z -b'
 
-eval "$(lua ~/WorkSpace/github/z.lua/z.lua --init bash enhanced once fzf)"
+eval "$(lua ~/WorkSpace/LocalCmd/z.lua/z.lua --init bash enhanced once fzf)"
 
 export FZF_DEFAULT_COMMAND='fd --type file'
 export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
