@@ -39,9 +39,9 @@ path_remove "/opt/GrainMedia_linux/toolchain_gnueabi-4.9.x_CA7/usr/bin"
 path_remove "/opt/arm/arm-ca53-linux-uclibcgnueabihf-6.4/usr/bin"
 
 if [[ -z "$TMUX" ]];then
-	export PATH="/home/${LOGNAME}/Rootfs/usr/bin":$PATH
-	export PATH="/home/${LOGNAME}/Rootfs/bin":$PATH
-	export PATH=$PATH:"/home/${LOGNAME}/WorkSpace/github/clang/bin"
+	path_prepend "/home/${LOGNAME}/Rootfs/usr/bin"
+	path_prepend "/home/${LOGNAME}/Rootfs/bin"
+	path_append "/home/${LOGNAME}/WorkSpace/github/clang/bin"
 fi
 
 if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
