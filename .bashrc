@@ -15,7 +15,7 @@ alias grep='grep --color=auto'
 alias life='cat ~/.bash_history | sort | uniq -c | sort -rn | head -n 10'
 alias filemode='git config core.filemode false'
 alias bp='rg --files -tasm -tc -tcpp | sort | uniq  > project.files'
-alias bb='cat project.files | gtags -f -'
+alias bb='gtags -f project.files'
 alias vi='vim'
 alias rm='rm -i'
 alias rr='rm -rf'
@@ -39,7 +39,7 @@ path_remove "/opt/arm/arm-ca53-linux-uclibcgnueabihf-6.4/usr/bin"
 if [[ -z "$TMUX" ]];then
 	path_prepend "$HOME/Rootfs/usr/bin"
 	path_prepend "$HOME/Rootfs/bin"
-	path_append "$HOME/WorkSpace/github/clang/bin"
+	path_append "$HOME/WorkSpace/LocalCmd/clang/bin"
 fi
 
 if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
