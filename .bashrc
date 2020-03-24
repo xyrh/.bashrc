@@ -25,12 +25,17 @@ alias zb='z -b'
 
 eval "$(lua ~/WorkSpace/LocalCmd/z.lua/z.lua --init bash enhanced once fzf)"
 
+function vim-status
+{
+	[[ -z "$VIM" ]] && echo "\[\033[01;32m\]✘\[\033[00m\]" || echo "\[\033[01;31m\]✘\[\033[00m\]"
+}
+
 export FZF_DEFAULT_COMMAND='fd --type file'
 export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export GIT_EDITOR=vim
 export LD_LIBRARY_PATH=~/Rootfs/usr/lib
-export PS1="\[\033[01;31m\]"'$(__git_ps1 "(%s)")'"\[\033[00m\] \[\033[01;33m\]\w\[\033[00m\] \$ "
+export PS1="\[\033[01;31m\]"'$(__git_ps1 "(%s)")'"\[\033[00m\] \[\033[01;33m\]\w\[\033[00m\] $(vim-status) "
 
 path_remove "/opt/xm_toolchain/arm-xm-linux/usr/bin"
 path_remove "/opt/GrainMedia_linux/toolchain_gnueabi-4.9.x_CA7/usr/bin"
