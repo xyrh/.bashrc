@@ -30,8 +30,8 @@ function vim-status
 	[[ -z "$VIM" ]] && echo "\[\033[01;32m\]✘\[\033[00m\]" || echo "\[\033[01;31m\]✘\[\033[00m\]"
 }
 
-export FZF_DEFAULT_COMMAND='fd --type file'
-export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export GIT_EDITOR=vim
 export LD_LIBRARY_PATH=~/Rootfs/usr/lib
