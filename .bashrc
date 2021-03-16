@@ -14,7 +14,7 @@ path_remove ()  { export PATH=`echo -n $PATH | awk -v RS=: -v ORS=: '$0 != "'$1'
 alias grep='grep --color=auto'
 alias life='cat ~/.bash_history | sort | uniq -c | sort -rn | head -n 10'
 alias filemode='git config core.filemode false'
-alias bp='rg --files -tasm -tc -tcpp | sort | uniq  > project.files'
+alias bp='[[ -f project.files ]] && echo "file exist!" || rg --files -tasm -tc -tcpp | sort | uniq  > project.files'
 alias bb='gtags -f project.files'
 alias vi='vim'
 alias rm='rm -i'
@@ -22,6 +22,8 @@ alias rr='rm -rf'
 alias ls='ls --color'
 alias zf='z -I'
 alias zb='z -b'
+alias t='todo.sh'
+alias ms="echo notify | at"
 
 eval "$(lua ~/WorkSpace/LocalCmd/z.lua/z.lua --init bash enhanced once fzf)"
 
@@ -36,6 +38,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export GIT_EDITOR=vim
 export LD_LIBRARY_PATH=~/Rootfs/usr/lib
 export PS1="\[\033[01;31m\]"'$(__git_ps1 "(%s)")'"\[\033[00m\] \[\033[01;33m\]\w\[\033[00m\] $(vim-status) "
+export PYTHONPATH=$HOME/.rootfs/usr/lib/python2.7/site-packages
 
 path_remove "/opt/xm_toolchain/arm-xm-linux/usr/bin"
 path_remove "/opt/GrainMedia_linux/toolchain_gnueabi-4.9.x_CA7/usr/bin"
